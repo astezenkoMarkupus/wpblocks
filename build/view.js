@@ -1,1 +1,0 @@
-console.log("Hello World! (from testblocks-test-static-block block)");

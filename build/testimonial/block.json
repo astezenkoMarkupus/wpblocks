@@ -1,17 +1,17 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "testblocks/test-static-block",
-  "version": "0.0.1",
-  "title": "Test Static Block",
-  "category": "media",
+  "name": "create-block/testimonial",
+  "version": "0.1.0",
+  "title": "Testimonial",
+  "category": "widgets",
   "icon": "smiley",
   "description": "Example block scaffolded with Create Block tool.",
   "example": {},
   "supports": {
     "html": false
   },
-  "textdomain": "test-static-block",
+  "textdomain": "testimonial",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

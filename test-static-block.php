@@ -24,7 +24,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function testblocks_test_static_block_block_init() {
-	register_block_type( __DIR__ . '/build' );
+function testblocks_block_init(): void {
+	register_block_type( __DIR__ . '/build/test_static_block' );
+	register_block_type( __DIR__ . '/build/testimonial' );
+
+	register_block_style(
+		'core/paragraph',
+		[
+			'name' => 'Test Paragraph',
+			'label' => __( 'Test Paragraph', 'test-static-block' ),
+			'inline_style' => '.test-paragraph { background-color: red }'
+		]
+	);
 }
-add_action( 'init', 'testblocks_test_static_block_block_init' );
+add_action( 'init', 'testblocks_block_init' );
