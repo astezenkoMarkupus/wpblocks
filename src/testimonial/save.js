@@ -16,11 +16,11 @@ import { RichText, useBlockProps } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save( { attributes } ){
-	const { title, body } = attributes
+	const { title, titleColor, body } = attributes
 
 	return (
 		<div { ...useBlockProps.save() }>
-			<RichText.Content tagName="h2" value={ title } />
+			<RichText.Content tagName="h2" value={ title } style={ { color: titleColor } } />
 			<RichText.Content tagName="p" value={ body } />
 		</div>
 	);

@@ -4,7 +4,13 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InspectorControls,
+	ColorPalette,
+	RichText
+} from '@wordpress/block-editor';
+import { PanelBody } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -23,24 +29,24 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ){
-	const { title, body } = attributes
+	const { title, titleColor, body } = attributes
 
-	return (
+	return ( [
+		<InspectorControls style={ { marginBottom: '40px' } }>
+			<PanelBody title='Title Color Settings'>
+				<p><strong>Select a color:</strong></p>
+				<ColorPalette value={ titleColor } onChange={ value => setAttributes( { titleColor: value } ) } />
+			</PanelBody>
+		</InspectorControls>,
 		<div { ...useBlockProps( { className: 'cwp-testimonial' } ) }>
 			<RichText
-				key="editable"
-				tagName="h2"
-				placeholder="Title"
-				value={ title }
-				onChange={ value => setAttributes( { title: value } ) }
+				key="editable" tagName="h2" placeholder="Title" value={ title }
+				onChange={ value => setAttributes( { title: value } ) } style={ { color: titleColor } }
 			/>
 			<RichText
-				key="editable"
-				tagName="p"
-				placeholder="Description"
-				value={ body }
+				key="editable" tagName="p" placeholder="Description" value={ body }
 				onChange={ value => setAttributes( { body: value } ) }
 			/>
 		</div>
-	);
+	] );
 }

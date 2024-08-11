@@ -22,6 +22,10 @@
       "source": "html",
       "selector": "h2"
     },
+    "titleColor": {
+      "type": "string",
+      "default": "#000"
+    },
     "body": {
       "type": "string",
       "source": "html",
