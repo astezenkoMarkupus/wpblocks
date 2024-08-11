@@ -11,7 +11,7 @@ import {
 	RichText,
 	MediaUpload
 } from '@wordpress/block-editor';
-import { IconButton, PanelBody } from '@wordpress/components';
+import { IconButton, PanelBody, RangeControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,7 +30,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ){
-	const { title, titleColor, body, backgroundImage } = attributes
+	const { title, titleColor, body, backgroundImage, overlayColor, overlayOpacity } = attributes
 
 	return ( [
 		<InspectorControls style={ { marginBottom: '40px' } }>
@@ -57,23 +57,44 @@ export default function Edit( { attributes, setAttributes } ){
 						)
 					} }
 				/>
-			</PanelBody>
-		</InspectorControls>,
-		<div
-			{ ...useBlockProps( { className: 'cwp-testimonial' } ) }
+
+				<div style={ { margin: '20px 0 40px' } }>
+					<p><strong>Background image overlay:</strong></p>
+					<ColorPalette value={ overlayColor } onChange={ value => setAttributes( { overlayColor: value } ) } />
+					<RangeControl
+						label='Overlay opacity'
+						value={ overlayOpacity }
+						onChange={ value => setAttributes( { overlayOpacity: value } ) }
+						min='0'
+						max='1'
+						step='0.05'
+					/>
+				</div>
+			</PanelBody> </InspectorControls>,
+		<div			{ ...useBlockProps( { className: 'cwp-testimonial' } ) }
 			style={ {
+				position: 'relative',
 				backgroundImage: `url(${ backgroundImage })`,
 				backgroundSize: 'cover',
 				backgroundPosition: 'center'
 			} }
 		>
+			{
+				overlayOpacity > 0
+					? <div style={ {
+						position: 'absolute',
+						inset: 0,
+						backgroundColor: overlayColor,
+						opacity: overlayOpacity
+					} }></div> : ''
+			}
 			<RichText
 				key="editable" tagName="h2" placeholder="Title" value={ title }
-				onChange={ value => setAttributes( { title: value } ) } style={ { color: titleColor } }
+				onChange={ value => setAttributes( { title: value } ) } style={ { position: 'relative', color: titleColor } }
 			/>
 			<RichText
 				key="editable" tagName="p" placeholder="Description" value={ body }
-				onChange={ value => setAttributes( { body: value } ) }
+				onChange={ value => setAttributes( { body: value } ) } style={ { position: 'relative' } }
 			/>
 		</div>
 	] );

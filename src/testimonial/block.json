@@ -34,6 +34,14 @@
     "backgroundImage": {
       "type": "string",
       "default": null
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "#000"
+    },
+    "overlayOpacity": {
+      "type": "number",
+      "default": 0.3
     }
   }
 }

@@ -53,7 +53,9 @@ function Edit({
     title,
     titleColor,
     body,
-    backgroundImage
+    backgroundImage,
+    overlayColor,
+    overlayOpacity
   } = attributes;
   return [(0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
     style: {
@@ -83,16 +85,42 @@ function Edit({
         className: "editor-media-placeholder__button is-button is-default is-large"
       }, "Background Image");
     }
-  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    style: {
+      margin: '20px 0 40px'
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Background image overlay:")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.ColorPalette, {
+    value: overlayColor,
+    onChange: value => setAttributes({
+      overlayColor: value
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+    label: "Overlay opacity",
+    value: overlayOpacity,
+    onChange: value => setAttributes({
+      overlayOpacity: value
+    }),
+    min: "0",
+    max: "1",
+    step: "0.05"
+  }))), " "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
       className: 'cwp-testimonial'
     }),
     style: {
+      position: 'relative',
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center'
     }
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+  }, overlayOpacity > 0 ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      backgroundColor: overlayColor,
+      opacity: overlayOpacity
+    }
+  }) : '', (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     key: "editable",
     tagName: "h2",
     placeholder: "Title",
@@ -101,6 +129,7 @@ function Edit({
       title: value
     }),
     style: {
+      position: 'relative',
       color: titleColor
     }
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
@@ -110,7 +139,10 @@ function Edit({
     value: body,
     onChange: value => setAttributes({
       body: value
-    })
+    }),
+    style: {
+      position: 'relative'
+    }
   }))];
 }
 
@@ -209,24 +241,38 @@ function save({
     title,
     titleColor,
     body,
-    backgroundImage
+    backgroundImage,
+    overlayColor,
+    overlayOpacity
   } = attributes;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
     style: {
+      position: 'relative',
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center'
     }
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+  }, overlayOpacity > 0 ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      backgroundColor: overlayColor,
+      opacity: overlayOpacity
+    }
+  }) : '', (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "h2",
     value: title,
     style: {
+      position: 'relative',
       color: titleColor
     }
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "p",
-    value: body
+    value: body,
+    style: {
+      position: 'relative'
+    }
   }));
 }
 
@@ -302,7 +348,7 @@ module.exports = window["wp"]["components"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/testimonial","version":"0.1.0","title":"Testimonial","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"testimonial","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"title":{"type":"string","source":"html","selector":"h2"},"titleColor":{"type":"string","default":"#000"},"body":{"type":"string","source":"html","selector":"p"},"backgroundImage":{"type":"string","default":null}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/testimonial","version":"0.1.0","title":"Testimonial","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"testimonial","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"title":{"type":"string","source":"html","selector":"h2"},"titleColor":{"type":"string","default":"#000"},"body":{"type":"string","source":"html","selector":"p"},"backgroundImage":{"type":"string","default":null},"overlayColor":{"type":"string","default":"#000"},"overlayOpacity":{"type":"number","default":0.3}}}');
 
 /***/ })
 
