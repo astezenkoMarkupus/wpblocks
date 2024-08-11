@@ -30,6 +30,10 @@
       "type": "string",
       "source": "html",
       "selector": "p"
+    },
+    "backgroundImage": {
+      "type": "string",
+      "default": null
     }
   }
 }

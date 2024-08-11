@@ -8,9 +8,10 @@ import {
 	useBlockProps,
 	InspectorControls,
 	ColorPalette,
-	RichText
+	RichText,
+	MediaUpload
 } from '@wordpress/block-editor';
-import { PanelBody } from '@wordpress/components';
+import { IconButton, PanelBody } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,7 +30,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ){
-	const { title, titleColor, body } = attributes
+	const { title, titleColor, body, backgroundImage } = attributes
 
 	return ( [
 		<InspectorControls style={ { marginBottom: '40px' } }>
@@ -37,8 +38,35 @@ export default function Edit( { attributes, setAttributes } ){
 				<p><strong>Select a color:</strong></p>
 				<ColorPalette value={ titleColor } onChange={ value => setAttributes( { titleColor: value } ) } />
 			</PanelBody>
+
+			<PanelBody title='Background Image'>
+				<p><strong>Select a background image:</strong></p>
+				<MediaUpload
+					onSelect={ value => setAttributes( { backgroundImage: value.sizes.full.url } ) }
+					type='image'
+					value={ backgroundImage }
+					render={ ( { open } ) => {
+						return (
+							<IconButton
+								onClick={ open }
+								icon='upload'
+								className='editor-media-placeholder__button is-button is-default is-large'
+							>
+								Background Image
+							</IconButton>
+						)
+					} }
+				/>
+			</PanelBody>
 		</InspectorControls>,
-		<div { ...useBlockProps( { className: 'cwp-testimonial' } ) }>
+		<div
+			{ ...useBlockProps( { className: 'cwp-testimonial' } ) }
+			style={ {
+				backgroundImage: `url(${ backgroundImage })`,
+				backgroundSize: 'cover',
+				backgroundPosition: 'center'
+			} }
+		>
 			<RichText
 				key="editable" tagName="h2" placeholder="Title" value={ title }
 				onChange={ value => setAttributes( { title: value } ) } style={ { color: titleColor } }
