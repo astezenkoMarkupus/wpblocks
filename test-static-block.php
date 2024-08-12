@@ -27,5 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 function testblocks_block_init(): void {
 	register_block_type( __DIR__ . '/build/test_static_block' );
 	register_block_type( __DIR__ . '/build/testimonial' );
+	register_block_type( __DIR__ . '/build/cwp-giveaway' );
 }
 add_action( 'init', 'testblocks_block_init' );

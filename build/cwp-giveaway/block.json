@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/cwp-giveaway",
+  "version": "0.1.0",
+  "title": "CodeWavePro Giveaway",
+  "category": "widgets",
+  "icon": "awards",
+  "description": "Giveaway and reward.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "testblocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "#333"
+    },
+    "description": {
+      "type": "string",
+      "source": "html",
+      "selector": "p"
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": "#333"
+    },
+    "accounts": {
+      "type": "object",
+      "default": {
+        "twitter": false,
+        "tweet": false,
+        "youtube": false,
+        "facebook": false
+      }
+    },
+    "twitter": {
+      "type": "object",
+      "default": {
+        "text": "",
+        "account": ""
+      }
+    },
+    "tweet": {
+      "type": "object",
+      "default": {
+        "text": "",
+        "message": "",
+        "url": ""
+      }
+    },
+    "youtube": {
+      "type": "object",
+      "default": {
+        "text": "",
+        "url": ""
+      }
+    },
+    "facebook": {
+      "type": "object",
+      "default": {
+        "text": "",
+        "url": ""
+      }
+    }
+  }
+}
