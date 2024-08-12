@@ -54,6 +54,7 @@ function Edit({
     title,
     titleColor,
     body,
+    alignment,
     backgroundImage,
     overlayColor,
     overlayOpacity
@@ -122,7 +123,12 @@ function Edit({
       backgroundColor: overlayColor,
       opacity: overlayOpacity
     }
-  }) : '', " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+  }) : '', (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentToolbar, {
+    value: alignment,
+    onChange: value => setAttributes({
+      alignment: value || 'none'
+    })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     key: "editable",
     tagName: "h2",
     placeholder: "Title",
@@ -132,9 +138,10 @@ function Edit({
     }),
     style: {
       position: 'relative',
-      color: titleColor
+      color: titleColor,
+      textAlign: alignment
     }
-  }), " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     key: "editable",
     tagName: "p",
     placeholder: "Description",
@@ -143,9 +150,10 @@ function Edit({
       body: value
     }),
     style: {
-      position: 'relative'
+      position: 'relative',
+      textAlign: alignment
     }
-  }), " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
     allowedBlocks: ALLOWED_BLOCKS
   }))];
 }
@@ -245,6 +253,7 @@ function save({
     title,
     titleColor,
     body,
+    alignment,
     backgroundImage,
     overlayColor,
     overlayOpacity
@@ -252,7 +261,6 @@ function save({
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
     style: {
-      position: 'relative',
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center'
@@ -265,16 +273,18 @@ function save({
     }
   }) : '', (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "h2",
+    className: "cwp-testimonial-title",
     value: title,
     style: {
-      position: 'relative',
-      color: titleColor
+      color: titleColor,
+      textAlign: alignment
     }
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "p",
+    className: "cwp-testimonial-desc",
     value: body,
     style: {
-      position: 'relative'
+      textAlign: alignment
     }
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null));
 }
@@ -351,7 +361,7 @@ module.exports = window["wp"]["components"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/testimonial","version":"0.1.0","title":"Testimonial","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"testimonial","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"title":{"type":"string","source":"html","selector":"h2"},"titleColor":{"type":"string","default":"#000"},"body":{"type":"string","source":"html","selector":"p"},"backgroundImage":{"type":"string","default":null},"overlayColor":{"type":"string","default":"#000"},"overlayOpacity":{"type":"number","default":0.3}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/testimonial","version":"0.1.0","title":"Testimonial","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"testimonial","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"title":{"type":"string","source":"html","selector":"h2"},"titleColor":{"type":"string","default":"#000"},"body":{"type":"string","source":"html","selector":"p"},"alignment":{"type":"string","default":"none"},"backgroundImage":{"type":"string","default":null},"overlayColor":{"type":"string","default":"#000"},"overlayOpacity":{"type":"number","default":0.3}}}');
 
 /***/ })
 

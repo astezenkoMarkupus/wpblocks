@@ -6,12 +6,19 @@
  */
 
 .wp-block-create-block-testimonial {
+	position: relative;
+
 	.cwp-testimonial {
 		position: relative;
 
 		&-overlay {
 			position: absolute;
 			inset: 0
+		}
+
+		&-title,
+		&-desc {
+			position: relative
 		}
 	}
 

@@ -7,12 +7,18 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.wp-block-create-block-testimonial {
+  position: relative;
+}
 .wp-block-create-block-testimonial .cwp-testimonial {
   position: relative;
 }
 .wp-block-create-block-testimonial .cwp-testimonial-overlay {
   position: absolute;
   inset: 0;
+}
+.wp-block-create-block-testimonial .cwp-testimonial-title, .wp-block-create-block-testimonial .cwp-testimonial-desc {
+  position: relative;
 }
 .wp-block-create-block-testimonial .wp-block-button {
   position: relative;

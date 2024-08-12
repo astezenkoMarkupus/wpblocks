@@ -16,13 +16,12 @@ import { InnerBlocks, RichText, useBlockProps } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save( { attributes } ){
-	const { title, titleColor, body, backgroundImage, overlayColor, overlayOpacity } = attributes
+	const { title, titleColor, body, alignment, backgroundImage, overlayColor, overlayOpacity } = attributes
 
 	return (
 		<div
 			{ ...useBlockProps.save() }
 			style={ {
-				position: 'relative',
 				backgroundImage: `url(${ backgroundImage })`,
 				backgroundSize: 'cover',
 				backgroundPosition: 'center'
@@ -35,8 +34,8 @@ export default function save( { attributes } ){
 						opacity: overlayOpacity
 					} }></div> : ''
 			}
-			<RichText.Content tagName="h2" value={ title } style={ { position: 'relative', color: titleColor } } />
-			<RichText.Content tagName="p" value={ body } style={ { position: 'relative' } } />
+			<RichText.Content tagName="h2" className='cwp-testimonial-title' value={ title } style={ { color: titleColor, textAlign: alignment } } />
+			<RichText.Content tagName="p" className='cwp-testimonial-desc' value={ body } style={ { textAlign: alignment } } />
 			<InnerBlocks.Content />
 		</div>
 	);

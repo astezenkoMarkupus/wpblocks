@@ -10,7 +10,9 @@ import {
 	ColorPalette,
 	RichText,
 	MediaUpload,
-	InnerBlocks
+	InnerBlocks,
+	BlockControls,
+	AlignmentToolbar
 } from '@wordpress/block-editor';
 import { IconButton, PanelBody, RangeControl } from '@wordpress/components';
 
@@ -33,7 +35,7 @@ const ALLOWED_BLOCKS = ['core/button'];
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ){
-	const { title, titleColor, body, backgroundImage, overlayColor, overlayOpacity } = attributes
+	const { title, titleColor, body, alignment, backgroundImage, overlayColor, overlayOpacity } = attributes
 
 	return ( [
 		<InspectorControls style={ { marginBottom: '40px' } }> <PanelBody
@@ -83,14 +85,25 @@ export default function Edit( { attributes, setAttributes } ){
 						opacity: overlayOpacity
 					} }
 					></div> : ''
-			} <RichText
-			key="editable" tagName="h2" placeholder="Title" value={ title }
-			onChange={ value => setAttributes( { title: value } ) }
-			style={ { position: 'relative', color: titleColor } }
-		/> <RichText
-			key="editable" tagName="p" placeholder="Description" value={ body }
-			onChange={ value => setAttributes( { body: value } ) } style={ { position: 'relative' } }
-		/> <InnerBlocks allowedBlocks={ ALLOWED_BLOCKS }/>
+			}
+
+			<BlockControls>
+				<AlignmentToolbar value={ alignment } onChange={ value => setAttributes( {
+					alignment: value || 'none'
+				} ) } />
+			</BlockControls>
+
+			<RichText
+				key="editable" tagName="h2" placeholder="Title" value={ title }
+				onChange={ value => setAttributes( { title: value } ) }
+				style={ { position: 'relative', color: titleColor, textAlign: alignment } }
+			/>
+			<RichText
+				key="editable" tagName="p" placeholder="Description" value={ body }
+				onChange={ value => setAttributes( { body: value } ) }
+				style={ { position: 'relative', textAlign: alignment } }
+			/>
+			<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS }/>
 		</div>
 	] );
 }

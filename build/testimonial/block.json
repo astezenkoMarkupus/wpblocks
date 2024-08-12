@@ -31,6 +31,10 @@
       "source": "html",
       "selector": "p"
     },
+    "alignment": {
+      "type": "string",
+      "default": "none"
+    },
     "backgroundImage": {
       "type": "string",
       "default": null
