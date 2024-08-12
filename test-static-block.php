@@ -27,14 +27,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 function testblocks_block_init(): void {
 	register_block_type( __DIR__ . '/build/test_static_block' );
 	register_block_type( __DIR__ . '/build/testimonial' );
-
-	register_block_style(
-		'core/paragraph',
-		[
-			'name' => 'Test Paragraph',
-			'label' => __( 'Test Paragraph', 'test-static-block' ),
-			'inline_style' => '.test-paragraph { background-color: red }'
-		]
-	);
 }
 add_action( 'init', 'testblocks_block_init' );
