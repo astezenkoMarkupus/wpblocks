@@ -62,14 +62,16 @@ function Edit({
       marginBottom: '40px'
     }
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-    title: "Title Color Settings"
+    title: "Title Color Settings",
+    initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Select a color:")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.ColorPalette, {
     value: titleColor,
     onChange: value => setAttributes({
       titleColor: value
     })
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-    title: "Background Image"
+    title: "Background Image",
+    initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Select a background image:")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
     onSelect: value => setAttributes({
       backgroundImage: value.sizes.full.url
@@ -114,9 +116,8 @@ function Edit({
       backgroundPosition: 'center'
     }
   }, overlayOpacity > 0 ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "cwp-testimonial-overlay",
     style: {
-      position: 'absolute',
-      inset: 0,
       backgroundColor: overlayColor,
       opacity: overlayOpacity
     }
@@ -254,9 +255,8 @@ function save({
       backgroundPosition: 'center'
     }
   }, overlayOpacity > 0 ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "cwp-testimonial-overlay",
     style: {
-      position: 'absolute',
-      inset: 0,
       backgroundColor: overlayColor,
       opacity: overlayOpacity
     }

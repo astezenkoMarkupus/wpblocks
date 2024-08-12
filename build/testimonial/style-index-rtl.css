@@ -7,8 +7,10 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-create-block-testimonial {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+.wp-block-create-block-testimonial .cwp-testimonial {
+  position: relative;
+}
+.wp-block-create-block-testimonial .cwp-testimonial-overlay {
+  position: absolute;
+  inset: 0;
 }

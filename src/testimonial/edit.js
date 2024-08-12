@@ -34,12 +34,12 @@ export default function Edit( { attributes, setAttributes } ){
 
 	return ( [
 		<InspectorControls style={ { marginBottom: '40px' } }>
-			<PanelBody title='Title Color Settings'>
+			<PanelBody title='Title Color Settings' initialOpen={ false }>
 				<p><strong>Select a color:</strong></p>
 				<ColorPalette value={ titleColor } onChange={ value => setAttributes( { titleColor: value } ) } />
 			</PanelBody>
 
-			<PanelBody title='Background Image'>
+			<PanelBody title='Background Image' initialOpen={ false }>
 				<p><strong>Select a background image:</strong></p>
 				<MediaUpload
 					onSelect={ value => setAttributes( { backgroundImage: value.sizes.full.url } ) }
@@ -71,7 +71,7 @@ export default function Edit( { attributes, setAttributes } ){
 					/>
 				</div>
 			</PanelBody> </InspectorControls>,
-		<div			{ ...useBlockProps( { className: 'cwp-testimonial' } ) }
+		<div { ...useBlockProps( { className: 'cwp-testimonial' } ) }
 			style={ {
 				position: 'relative',
 				backgroundImage: `url(${ backgroundImage })`,
@@ -81,9 +81,7 @@ export default function Edit( { attributes, setAttributes } ){
 		>
 			{
 				overlayOpacity > 0
-					? <div style={ {
-						position: 'absolute',
-						inset: 0,
+					? <div className='cwp-testimonial-overlay' style={ {
 						backgroundColor: overlayColor,
 						opacity: overlayOpacity
 					} }></div> : ''

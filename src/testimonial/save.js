@@ -30,9 +30,7 @@ export default function save( { attributes } ){
 		>
 			{
 				overlayOpacity > 0
-					? <div style={ {
-						position: 'absolute',
-						inset: 0,
+					? <div className='cwp-testimonial-overlay' style={ {
 						backgroundColor: overlayColor,
 						opacity: overlayOpacity
 					} }></div> : ''

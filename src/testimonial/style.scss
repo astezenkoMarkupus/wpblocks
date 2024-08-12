@@ -6,7 +6,12 @@
  */
 
 .wp-block-create-block-testimonial {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+	.cwp-testimonial {
+		position: relative;
+
+		&-overlay {
+			position: absolute;
+			inset: 0
+		}
+	}
 }
