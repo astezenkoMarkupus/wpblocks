@@ -14,4 +14,12 @@
 			inset: 0
 		}
 	}
+
+	.wp-block-button {
+		position: relative
+	}
+
+	.wp-block-button__link {
+		font-size: inherit
+	}
 }

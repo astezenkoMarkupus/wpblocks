@@ -14,5 +14,11 @@
   position: absolute;
   inset: 0;
 }
+.wp-block-create-block-testimonial .wp-block-button {
+  position: relative;
+}
+.wp-block-create-block-testimonial .wp-block-button__link {
+  font-size: inherit;
+}
 
 /*# sourceMappingURL=style-index.css.map*/

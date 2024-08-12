@@ -36,6 +36,7 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 
+const ALLOWED_BLOCKS = ['core/button'];
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -61,7 +62,7 @@ function Edit({
     style: {
       marginBottom: '40px'
     }
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+  }, " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: "Title Color Settings",
     initialOpen: false
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Select a color:")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.ColorPalette, {
@@ -85,7 +86,7 @@ function Edit({
         onClick: open,
         icon: "upload",
         className: "editor-media-placeholder__button is-button is-default is-large"
-      }, "Background Image");
+      }, " Background Image ");
     }
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     style: {
@@ -96,7 +97,7 @@ function Edit({
     onChange: value => setAttributes({
       overlayColor: value
     })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+  }), " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
     label: "Overlay opacity",
     value: overlayOpacity,
     onChange: value => setAttributes({
@@ -121,7 +122,7 @@ function Edit({
       backgroundColor: overlayColor,
       opacity: overlayOpacity
     }
-  }) : '', (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+  }) : '', " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     key: "editable",
     tagName: "h2",
     placeholder: "Title",
@@ -133,7 +134,7 @@ function Edit({
       position: 'relative',
       color: titleColor
     }
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+  }), " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     key: "editable",
     tagName: "p",
     placeholder: "Description",
@@ -144,6 +145,8 @@ function Edit({
     style: {
       position: 'relative'
     }
+  }), " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
+    allowedBlocks: ALLOWED_BLOCKS
   }))];
 }
 
@@ -273,7 +276,7 @@ function save({
     style: {
       position: 'relative'
     }
-  }));
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null));
 }
 
 /***/ }),
