@@ -18,35 +18,179 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _social_row_block_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./social-row-block.json */ "./src/cwp-giveaway/blocks/social-row-block.json");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 
-const ROW_TEMPLATE = [['core/columns', {}, [['core/column', {
-  templateLock: 'all',
-  width: '30%',
-  verticalAlignment: 'center'
-}, [['core/image', {
-  sizeSlug: 'thumbnail'
-}]]], ['core/column', {
-  templateLock: 'all'
-}, [['core/button']]]]]];
+
 const settings = {
   icon: 'smiley',
-  edit() {
+  attributes: {
+    accountType: {
+      type: 'string',
+      default: 'twitter'
+    },
+    twitter: {
+      default: {
+        text: '',
+        account: ''
+      }
+    },
+    tweet: {
+      default: {
+        text: '',
+        message: '',
+        url: ''
+      }
+    },
+    youtube: {
+      default: {
+        text: '',
+        url: ''
+      }
+    }
+  },
+  edit({
+    attributes,
+    setAttributes
+  }) {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
         className: 'cwp-social-row'
       })
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
-      template: ROW_TEMPLATE,
-      templateLock: "all"
-    }));
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      style: {
+        marginBottom: '40px'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RadioControl, {
+      label: "Social Media",
+      help: "The type of social media to use",
+      selected: attributes.accountType,
+      options: [{
+        label: 'Follow on Twitter',
+        value: 'twitter'
+      }, {
+        label: 'Share a Tweet',
+        value: 'tweet'
+      }, {
+        label: 'Subscribe on YouTube',
+        value: 'youtube'
+      }],
+      onChange: value => setAttributes({
+        accountType: value
+      })
+    })))), attributes.accountType === 'twitter' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Dashicon, {
+      icon: "twitter",
+      style: {
+        color: '#00c3ff'
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Follow me on Twitter",
+      value: attributes.twitter.text,
+      onChange: value => setAttributes({
+        twitter: {
+          ...attributes.twitter,
+          text: value
+        }
+      })
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Your Twitter Account",
+      value: attributes.twitter.account,
+      onChange: value => setAttributes({
+        twitter: {
+          ...attributes.twitter,
+          account: value
+        }
+      })
+    })), attributes.accountType === 'tweet' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Dashicon, {
+      icon: "twitter",
+      style: {
+        color: '#00c3ff'
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Share a Tweet",
+      value: attributes.tweet.text,
+      onChange: value => setAttributes({
+        tweet: {
+          ...attributes.tweet,
+          text: value
+        }
+      })
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Tweet Message",
+      value: attributes.tweet.message,
+      onChange: value => setAttributes({
+        tweet: {
+          ...attributes.tweet,
+          message: value
+        }
+      })
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Tweet URL",
+      value: attributes.tweet.url,
+      onChange: value => setAttributes({
+        tweet: {
+          ...attributes.tweet,
+          url: value
+        }
+      })
+    })), attributes.accountType === 'youtube' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Dashicon, {
+      icon: "youtube",
+      style: {
+        color: '#ed1111'
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "YouTube Text",
+      value: attributes.youtube.text,
+      onChange: value => setAttributes({
+        youtube: {
+          ...attributes.youtube,
+          text: value
+        }
+      })
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "YouTube URL",
+      value: attributes.youtube.url,
+      onChange: value => setAttributes({
+        youtube: {
+          ...attributes.youtube,
+          url: value
+        }
+      })
+    })));
   },
-  save() {
+  save({
+    attributes
+  }) {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "cwp-social-row"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null)));
+    }, attributes.accountType === 'twitter' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: `#${attributes.twitter.account}`,
+      target: "_blank"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Dashicon, {
+      icon: "twitter",
+      style: {
+        color: '#00c3ff'
+      }
+    }), attributes.twitter.text)), attributes.accountType === 'tweet' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: attributes.tweet.url + '?message=' + attributes.tweet.message,
+      target: "_blank"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Dashicon, {
+      icon: "twitter",
+      style: {
+        color: '#00c3ff'
+      }
+    }), attributes.tweet.text)), attributes.accountType === 'youtube' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: attributes.youtube.url,
+      target: "_blank"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Dashicon, {
+      icon: "youtube",
+      style: {
+        color: '#ed1111'
+      }
+    }), attributes.youtube.text))));
   }
 };
 
@@ -64,12 +208,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/cwp-giveaway/editor.scss");
-
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editor.scss */ "./src/cwp-giveaway/editor.scss");
 
 
 
@@ -83,10 +224,10 @@ const CWP_TEMPLATE = [['core/image', {}], ['core/heading', {
 const ALLOWED_BLOCKS = ['create-block/cwp-giveaway-social-row'];
 function Edit() {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
       className: 'cwp-giveaway'
     })
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
     template: CWP_TEMPLATE,
     allowedBlocks: ALLOWED_BLOCKS
   }));
@@ -254,13 +395,13 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
-/***/ "@wordpress/i18n":
-/*!******************************!*\
-  !*** external ["wp","i18n"] ***!
-  \******************************/
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
 /***/ ((module) => {
 
-module.exports = window["wp"]["i18n"];
+module.exports = window["wp"]["components"];
 
 /***/ }),
 

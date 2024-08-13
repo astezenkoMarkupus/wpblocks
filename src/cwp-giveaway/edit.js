@@ -1,5 +1,4 @@
-import { __ } from '@wordpress/i18n';
-import { RichText, useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import './editor.scss';
 
 const CWP_TEMPLATE = [
