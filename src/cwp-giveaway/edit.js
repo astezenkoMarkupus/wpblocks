@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { RichText, useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -21,6 +21,13 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 import './editor.scss';
 
+const CWP_TEMPLATE = [
+	['core/image', {}],
+	['core/heading', { placeholder: 'Giveaway Title' }],
+	['core/paragraph', { placeholder: 'Giveaway Description' }],
+	['core/button', { placeholder: 'Call to Action' }]
+]
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -29,10 +36,10 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit( { attributes, setAttributes } ) {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Testblocks Cwp Giveaway – hello from the editor!', 'testblocks&#x2F;cwp-giveaway' ) }
-		</p>
+		<div { ...useBlockProps( { className: 'cwp-giveaway' } ) }>
+			<InnerBlocks template={ CWP_TEMPLATE } templateLock='insert' />
+		</div>
 	);
 }

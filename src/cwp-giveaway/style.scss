@@ -6,7 +6,23 @@
  */
 
 .cwp-giveaway {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+	border: 1px solid #333;
+	border-radius: 10px;
+	padding: 10px 15px;
+
+	.wp-block-image {
+		width: 100%
+	}
+
+	.wp-block-button__link {
+		font-size: inherit
+	}
+
+	&-title {
+		margin: 0 0 20px
+	}
+
+	&-desc {
+		margin: 0
+	}
 }

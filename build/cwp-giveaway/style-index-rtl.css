@@ -8,7 +8,19 @@
  * Replace them with your own styles or remove the file completely.
  */
 .cwp-giveaway {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+.cwp-giveaway .wp-block-image {
+  width: 100%;
+}
+.cwp-giveaway .wp-block-button__link {
+  font-size: inherit;
+}
+.cwp-giveaway-title {
+  margin: 0 0 20px;
+}
+.cwp-giveaway-desc {
+  margin: 0;
 }

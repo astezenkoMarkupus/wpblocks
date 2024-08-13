@@ -17,24 +17,6 @@
   "style": "file:./style-index.css",
   "viewScript": "file:./view.js",
   "attributes": {
-    "title": {
-      "type": "string",
-      "source": "html",
-      "selector": "h2"
-    },
-    "titleColor": {
-      "type": "string",
-      "default": "#333"
-    },
-    "description": {
-      "type": "string",
-      "source": "html",
-      "selector": "p"
-    },
-    "descriptionColor": {
-      "type": "string",
-      "default": "#333"
-    },
     "accounts": {
       "type": "object",
       "default": {

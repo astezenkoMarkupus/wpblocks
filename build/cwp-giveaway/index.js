@@ -42,6 +42,13 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 
+const CWP_TEMPLATE = [['core/image', {}], ['core/heading', {
+  placeholder: 'Giveaway Title'
+}], ['core/paragraph', {
+  placeholder: 'Giveaway Description'
+}], ['core/button', {
+  placeholder: 'Call to Action'
+}]];
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -51,10 +58,18 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function Edit() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Testblocks Cwp Giveaway – hello from the editor!', 'testblocks&#x2F;cwp-giveaway'));
+function Edit({
+  attributes,
+  setAttributes
+}) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+      className: 'cwp-giveaway'
+    })
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+    template: CWP_TEMPLATE,
+    templateLock: "insert"
+  }));
 }
 
 /***/ }),
@@ -146,9 +161,11 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 function save() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
-  }, 'Testblocks Cwp Giveaway – hello from the saved content!');
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "cwp-giveaway"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null)));
 }
 
 /***/ }),
@@ -223,7 +240,7 @@ module.exports = window["wp"]["i18n"];
   \*************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/cwp-giveaway","version":"0.1.0","title":"CodeWavePro Giveaway","category":"widgets","icon":"awards","description":"Giveaway and reward.","example":{},"supports":{"html":false},"textdomain":"testblocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"title":{"type":"string","source":"html","selector":"h2"},"titleColor":{"type":"string","default":"#333"},"description":{"type":"string","source":"html","selector":"p"},"descriptionColor":{"type":"string","default":"#333"},"accounts":{"type":"object","default":{"twitter":false,"tweet":false,"youtube":false,"facebook":false}},"twitter":{"type":"object","default":{"text":"","account":""}},"tweet":{"type":"object","default":{"text":"","message":"","url":""}},"youtube":{"type":"object","default":{"text":"","url":""}},"facebook":{"type":"object","default":{"text":"","url":""}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/cwp-giveaway","version":"0.1.0","title":"CodeWavePro Giveaway","category":"widgets","icon":"awards","description":"Giveaway and reward.","example":{},"supports":{"html":false},"textdomain":"testblocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"accounts":{"type":"object","default":{"twitter":false,"tweet":false,"youtube":false,"facebook":false}},"twitter":{"type":"object","default":{"text":"","account":""}},"tweet":{"type":"object","default":{"text":"","message":"","url":""}},"youtube":{"type":"object","default":{"text":"","url":""}},"facebook":{"type":"object","default":{"text":"","url":""}}}}');
 
 /***/ })
 
