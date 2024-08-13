@@ -2,6 +2,35 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/cwp-giveaway/blocks/social-row.js":
+/*!***********************************************!*\
+  !*** ./src/cwp-giveaway/blocks/social-row.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   rowMetadata: () => (/* reexport default export from named module */ _social_row_block_json__WEBPACK_IMPORTED_MODULE_1__),
+/* harmony export */   settings: () => (/* binding */ settings)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _social_row_block_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./social-row-block.json */ "./src/cwp-giveaway/blocks/social-row-block.json");
+
+
+
+const settings = {
+  icon: 'smiley',
+  edit() {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Hello");
+  },
+  save() {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Hello");
+  }
+};
+
+/***/ }),
+
 /***/ "./src/cwp-giveaway/edit.js":
 /*!**********************************!*\
   !*** ./src/cwp-giveaway/edit.js ***!
@@ -46,7 +75,7 @@ const CWP_TEMPLATE = [['core/image', {}], ['core/heading', {
   placeholder: 'Giveaway Title'
 }], ['core/paragraph', {
   placeholder: 'Giveaway Description'
-}], ['core/button', {
+}], ['create-block/cwp-giveaway-social-row', {}], ['core/button', {
   placeholder: 'Call to Action'
 }]];
 
@@ -58,10 +87,7 @@ const CWP_TEMPLATE = [['core/image', {}], ['core/heading', {
  *
  * @return {Element} Element to render.
  */
-function Edit({
-  attributes,
-  setAttributes
-}) {
+function Edit() {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
       className: 'cwp-giveaway'
@@ -87,6 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/cwp-giveaway/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/cwp-giveaway/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/cwp-giveaway/block.json");
+/* harmony import */ var _blocks_social_row__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./blocks/social-row */ "./src/cwp-giveaway/blocks/social-row.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -111,6 +138,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
+ * Child blocks.
+ */
+
+
+/**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
@@ -124,6 +156,10 @@ __webpack_require__.r(__webpack_exports__);
    * @see ./save.js
    */
   save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_blocks_social_row__WEBPACK_IMPORTED_MODULE_5__.rowMetadata.name, {
+  ..._blocks_social_row__WEBPACK_IMPORTED_MODULE_5__.rowMetadata,
+  ..._blocks_social_row__WEBPACK_IMPORTED_MODULE_5__.settings
 });
 
 /***/ }),
@@ -241,6 +277,16 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/cwp-giveaway","version":"0.1.0","title":"CodeWavePro Giveaway","category":"widgets","icon":"awards","description":"Giveaway and reward.","example":{},"supports":{"html":false},"textdomain":"testblocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"accounts":{"type":"object","default":{"twitter":false,"tweet":false,"youtube":false,"facebook":false}},"twitter":{"type":"object","default":{"text":"","account":""}},"tweet":{"type":"object","default":{"text":"","message":"","url":""}},"youtube":{"type":"object","default":{"text":"","url":""}},"facebook":{"type":"object","default":{"text":"","url":""}}}}');
+
+/***/ }),
+
+/***/ "./src/cwp-giveaway/blocks/social-row-block.json":
+/*!*******************************************************!*\
+  !*** ./src/cwp-giveaway/blocks/social-row-block.json ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"name":"create-block/cwp-giveaway-social-row","title":"CodeWavePro Giveaway Social Row","category":"widgets","icon":"smiley","description":"Add a social media row to the CWP Giveaway Block.","supports":{"html":false},"textdomain":"testblocks","parent":["create-block/cwp-giveaway"]}');
 
 /***/ })
 

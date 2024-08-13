@@ -1,0 +1,12 @@
+{
+  "name": "create-block/cwp-giveaway-social-row",
+  "title": "CodeWavePro Giveaway Social Row",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Add a social media row to the CWP Giveaway Block.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "testblocks",
+  "parent": ["create-block/cwp-giveaway"]
+}

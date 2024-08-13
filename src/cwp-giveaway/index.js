@@ -22,6 +22,11 @@ import save from './save';
 import metadata from './block.json';
 
 /**
+ * Child blocks.
+ */
+import { rowMetadata, settings } from './blocks/social-row'
+
+/**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
@@ -37,3 +42,5 @@ registerBlockType( metadata.name, {
 	 */
 	save,
 } );
+
+registerBlockType( rowMetadata.name, { ...rowMetadata, ...settings } )

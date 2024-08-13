@@ -25,6 +25,7 @@ const CWP_TEMPLATE = [
 	['core/image', {}],
 	['core/heading', { placeholder: 'Giveaway Title' }],
 	['core/paragraph', { placeholder: 'Giveaway Description' }],
+	['create-block/cwp-giveaway-social-row', {}],
 	['core/button', { placeholder: 'Call to Action' }]
 ]
 
@@ -36,7 +37,7 @@ const CWP_TEMPLATE = [
  *
  * @return {Element} Element to render.
  */
-export default function Edit( { attributes, setAttributes } ) {
+export default function Edit() {
 	return (
 		<div { ...useBlockProps( { className: 'cwp-giveaway' } ) }>
 			<InnerBlocks template={ CWP_TEMPLATE } templateLock='insert' />
