@@ -10,22 +10,43 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   rowMetadata: () => (/* reexport default export from named module */ _social_row_block_json__WEBPACK_IMPORTED_MODULE_1__),
+/* harmony export */   rowMetadata: () => (/* reexport default export from named module */ _social_row_block_json__WEBPACK_IMPORTED_MODULE_2__),
 /* harmony export */   settings: () => (/* binding */ settings)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _social_row_block_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./social-row-block.json */ "./src/cwp-giveaway/blocks/social-row-block.json");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _social_row_block_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./social-row-block.json */ "./src/cwp-giveaway/blocks/social-row-block.json");
 
 
 
+
+const ROW_TEMPLATE = [['core/columns', {}, [['core/column', {
+  templateLock: 'all',
+  width: '30%',
+  verticalAlignment: 'center'
+}, [['core/image', {
+  sizeSlug: 'thumbnail'
+}]]], ['core/column', {
+  templateLock: 'all'
+}, [['core/button']]]]]];
 const settings = {
   icon: 'smiley',
   edit() {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Hello");
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
+        className: 'cwp-social-row'
+      })
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
+      template: ROW_TEMPLATE,
+      templateLock: "all"
+    }));
   },
   save() {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Hello");
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "cwp-social-row"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null)));
   }
 };
 
@@ -49,27 +70,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/cwp-giveaway/editor.scss");
 
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
 
 
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
 
 const CWP_TEMPLATE = [['core/image', {}], ['core/heading', {
   placeholder: 'Giveaway Title'
@@ -78,15 +80,7 @@ const CWP_TEMPLATE = [['core/image', {}], ['core/heading', {
 }], ['create-block/cwp-giveaway-social-row', {}], ['core/button', {
   placeholder: 'Call to Action'
 }]];
-
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {Element} Element to render.
- */
+const ALLOWED_BLOCKS = ['create-block/cwp-giveaway-social-row'];
 function Edit() {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
@@ -94,7 +88,7 @@ function Edit() {
     })
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     template: CWP_TEMPLATE,
-    templateLock: "insert"
+    allowedBlocks: ALLOWED_BLOCKS
   }));
 }
 
@@ -276,7 +270,7 @@ module.exports = window["wp"]["i18n"];
   \*************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/cwp-giveaway","version":"0.1.0","title":"CodeWavePro Giveaway","category":"widgets","icon":"awards","description":"Giveaway and reward.","example":{},"supports":{"html":false},"textdomain":"testblocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"accounts":{"type":"object","default":{"twitter":false,"tweet":false,"youtube":false,"facebook":false}},"twitter":{"type":"object","default":{"text":"","account":""}},"tweet":{"type":"object","default":{"text":"","message":"","url":""}},"youtube":{"type":"object","default":{"text":"","url":""}},"facebook":{"type":"object","default":{"text":"","url":""}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/cwp-giveaway","version":"0.1.0","title":"CodeWavePro Giveaway","category":"widgets","icon":"awards","description":"Giveaway and reward.","example":{},"supports":{"html":false},"textdomain":"testblocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ }),
 

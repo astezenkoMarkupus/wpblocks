@@ -15,45 +15,5 @@
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
-  "viewScript": "file:./view.js",
-  "attributes": {
-    "accounts": {
-      "type": "object",
-      "default": {
-        "twitter": false,
-        "tweet": false,
-        "youtube": false,
-        "facebook": false
-      }
-    },
-    "twitter": {
-      "type": "object",
-      "default": {
-        "text": "",
-        "account": ""
-      }
-    },
-    "tweet": {
-      "type": "object",
-      "default": {
-        "text": "",
-        "message": "",
-        "url": ""
-      }
-    },
-    "youtube": {
-      "type": "object",
-      "default": {
-        "text": "",
-        "url": ""
-      }
-    },
-    "facebook": {
-      "type": "object",
-      "default": {
-        "text": "",
-        "url": ""
-      }
-    }
-  }
+  "viewScript": "file:./view.js"
 }
