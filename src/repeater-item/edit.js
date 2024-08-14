@@ -1,38 +1,57 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
 import { __ } from '@wordpress/i18n';
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps } from '@wordpress/block-editor';
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, Spinner } from '@wordpress/components'
+import React, { useState } from 'react'
+import Select from 'react-select'
+import { useSelect } from '@wordpress/data'
 import './editor.scss';
 
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {Element} Element to render.
- */
-export default function Edit() {
+export default function Edit( { attributes, setAttributes } ) {
+	const
+		{ postId, selectedOption } = attributes,
+		[post, setPost] = useState( postId || null ),
+		items = useSelect( select => {
+			return select( 'core' ).getEntityRecords( 'postType', 'page', { per_page: -1 } )
+		}, [] ),
+		postsSelections = items ? items.map( item => {
+			return {
+				value: item.id,
+				label: item.title.rendered
+			}
+		} ) : []
+
+	const handlePostSelect = item => {
+		const value = parseInt( item.value )
+
+		setPost( value )
+		setAttributes( {
+			postId: value,
+			selectedOption: item
+		} )
+	}
+
+	/*const singlePost = useSelect( select => {
+		const posts = select( 'core' ).getEntityRecords( 'postType', 'page', { include: postId } )
+
+		return posts ? posts[0] : null
+	}, [] )*/
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Repeater Item – hello from the editor!', 'repeater-item' ) }
-		</p>
+		<>
+			<InspectorControls>
+				<PanelBody title="Posts Settings">
+					<Select
+						name="post-select"
+						options={ [{ value: '', label: '---' }, ...postsSelections] }
+						value={ selectedOption || '' }
+						onChange={ handlePostSelect }
+					/>
+				</PanelBody>
+			</InspectorControls>
+
+			<li { ...useBlockProps( { className: 'repeater-item' } ) }>
+				{ selectedOption ? selectedOption.label : 'no data' }
+			</li>
+		</>
 	);
 }

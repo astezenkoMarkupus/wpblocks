@@ -6,7 +6,11 @@
  */
 
 .wp-block-create-block-repeater {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+	ul {
+		display: grid;
+		width: 100%;
+		list-style: none;
+		padding: 0;
+		margin: 0
+	}
 }

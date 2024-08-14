@@ -19,6 +19,11 @@
 	},
 	"dependencies": {
 		"@wordpress/block-editor": "^13.4.0",
-		"@wordpress/components": "^28.5.0"
+		"@wordpress/blocks": "^13.5.0",
+		"@wordpress/components": "^28.5.0",
+		"@wordpress/data": "^10.5.0",
+		"@wordpress/i18n": "^5.5.0",
+		"react": "^18.3.1",
+		"react-select": "^5.8.0"
 	}
 }

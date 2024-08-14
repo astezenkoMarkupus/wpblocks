@@ -6,7 +6,8 @@
  */
 
 .wp-block-create-block-repeater-item {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+	img {
+		width: 100%;
+		height: auto
+	}
 }
